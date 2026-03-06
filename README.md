@@ -123,7 +123,7 @@ dotnet add package Scrutor --version 7.0.0
 dotnet new tool-manifest
 dotnet tool install dotnet-ef --version 8.*
 dotnet ef --version
-
+```
 ---
 
 ## 5) ตั้งค่า Program.cs
