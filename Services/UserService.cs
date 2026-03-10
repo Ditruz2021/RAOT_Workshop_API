@@ -157,7 +157,7 @@ namespace ExampleApi.Services
 
             var Username = Request.Username.Trim();
 
-            var IsDuplicate = await db.Users.AnyAsync(x => x.Username == Username);
+            var IsDuplicate = await db.Users.AnyAsync(x => x.Username == Username && x.UserId != UserId);
             if (IsDuplicate)
             {
                 throw new InvalidOperationException("มีชื่อผู้ใช้ซ้ำในระบบแล้ว");
