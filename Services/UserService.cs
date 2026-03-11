@@ -13,6 +13,7 @@ namespace ExampleApi.Services
         Task<UserResponse> CreateAsync(UserCreateRequest req);
         Task<UserResponse?> UpdateAsync(int userId, UserUpdateRequest req);
         Task<bool> DeleteAsync(int userId);
+        Task<List<RoleResponse>> GetDDL();
     }
 
     public class UserService : IUserService
@@ -221,5 +222,13 @@ namespace ExampleApi.Services
         }
 
 
+        public async Task<List<RoleResponse>> GetDDL()
+        {
+            var Role = await db.Roles.Select(x => new RoleResponse
+            {
+               RoleId = x.RoleId,
+               RoleName = x.RoleName
+            }).ToListAsync();
+        }
     }
 }
