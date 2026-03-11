@@ -53,5 +53,12 @@ namespace ExampleApi.Controllers
             var ok = await Service.DeleteAsync(Id);
             return ok ? NoContent() : NotFound();
         }
+
+        [HttpGet("role")]
+        public async Task<IActionResult> GetRole()
+        {
+            var Result = await Service.GetDDL();
+            return Ok(Result);
+        }
     }
 }
